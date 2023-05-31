@@ -31,12 +31,12 @@ if($result->num_rows > 0) {
       $username = "Error, no username found";
     }
 
-
+   
     //card structure to display information from database
     echo '<div class="col-12 col-sm-12 col-xl-6">';
         echo'<div class="card-container">';
           echo '<div class="img-placeholder">';
-                echo'<h3>' . $imageUrl . '</h3>';
+                echo'<img src="' . $imageUrl . '"alt="Image">';
             echo '</div>';
             echo '<div class="description">';
 

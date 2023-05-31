@@ -20,7 +20,7 @@
           <div class="row">
             <div class="form">
               
-              <form action="includes/createPost.inc.php" method="POST">
+              <form action="includes/createPost.inc.php" method="POST" enctype="multipart/form-data">
                 
               <main class="container p-4 bg-dark text-light mt-3 >" id="signup-form">
               <h3> Write a new review: </h3>

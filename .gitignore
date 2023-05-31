@@ -4,3 +4,4 @@
 /includes/login.inc.php
 /includes/logout.inc.php
 /includes/signup.inc.php
+/includes/createPost.inc.php

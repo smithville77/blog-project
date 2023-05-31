@@ -30,69 +30,9 @@
 
   <div>
   <div class="row">
-    <div class="col-12 col-sm-12 col-xl-6">
-      <div class="card-container">
-      <div class="img-placeholder">
-            <h3>Image goes here</h3>
-        </div>
-        <div class="description">
-
-          <h4>title...</h4>
-          <div class="user-date-sect">
-            <p>posted by: Adam1991 &nbsp; &nbsp; </p> || &nbsp; &nbsp; <p><em>Date: 01-01-1970</em></p>
-            
-          </div>
-          <p class="user-review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illum magni, molestiae architecto sequi nobis doloremque sapiente quasi quos eum quibusdam ex aut adipisci. Voluptatem porro dolore eum aliquid deserunt!</p>
-          <div class="card-btn-container">
-            <button class="btn btn-primary m-1">EDIT</button>
-            <button class="btn btn-danger m-1">DELETE</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-12 col-xl-6">
-      <div class="card-container">
-      <div class="img-placeholder">
-            <h3>Image goes here</h3>
-        </div>
-        <div class="description">
-
-          <h4>title...</h4>
-          <div class="user-date-sect">
-            <p>posted by: Adam1991 &nbsp; &nbsp; </p> || &nbsp; &nbsp; <p><em>Date: 01-01-1970</em></p>
-            
-          </div>
-          <p class="user-review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illum magni, molestiae architecto sequi nobis doloremque sapiente quasi quos eum quibusdam ex aut adipisci. Voluptatem porro dolore eum aliquid deserunt!</p>
-          <div class="card-btn-container">
-            <button class="btn btn-primary m-1">EDIT</button>
-            <button class="btn btn-danger m-1">DELETE</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-12 col-xl-6">
-      <div class="card-container">
-      <div class="img-placeholder">
-            <h3>Image goes here</h3>
-        </div>
-        <div class="description">
-
-          <h4>title...</h4>
-          <div class="user-date-sect">
-            <p>posted by: Adam1991 &nbsp; &nbsp; </p> || &nbsp; &nbsp; <p><em>Date: 01-01-1970</em></p>
-            
-          </div>
-          <p class="user-review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illum magni, molestiae architecto sequi nobis doloremque sapiente quasi quos eum quibusdam ex aut adipisci. Voluptatem porro dolore eum aliquid deserunt!</p>
-          <div class="card-btn-container">
-            <button class="btn btn-primary m-1">EDIT</button>
-            <button class="btn btn-danger m-1">DELETE</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    
+    <?php require './templates/displayPosts.php'; ?>
+  
   </div>
 </div>
 
