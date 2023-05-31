@@ -97,10 +97,6 @@
 </div>
 
 
-
-
-
-
     </div>
    
       <?php include './templates/newsBar.php' ?>
