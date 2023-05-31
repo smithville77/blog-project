@@ -5,9 +5,9 @@
   <button id="post-control" type="button">+</button>
 </div>
 <div class="options-bar">
-  <a><button class="dropdown-btn btn">Create Post</button></a>
-  <a><button class="dropdown-btn btn">My Posts</button></a>
-  <a><button class="dropdown-btn btn">All Posts</button></a>
+  <a href="./createPost.php" class="dropdown-btn btn">Create Post</a>
+  <a class="dropdown-btn btn">My Posts</a>
+  <a class="dropdown-btn btn">All Posts</a>
 </div>
 <?php endif; ?>
 
