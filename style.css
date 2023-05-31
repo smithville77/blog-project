@@ -1,0 +1,251 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
+}
+
+.content-structure {
+  display: flex;
+  justify-items: start;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.container-header-main {
+  width: 100%;
+  margin: 30px 40px;
+}
+
+.main-seperator {
+  display: flex;
+}
+
+/* body {
+  background-image: url('./images/vecteezy_abstract-wavy-lines-on-gradient-background_23860425.jpg');
+} */
+.main {
+  padding-top: 40px;
+  display: flex;
+}
+
+.profile-sidebar {
+  position: sticky;
+  color: white;
+  top: 0;
+  left: 0;
+  max-width: 20%;
+  height: 100vh;
+  background-color: RGB(33, 37, 41);
+  box-shadow: 0 0 50px #ccc;
+  text-align: center;
+  padding: 100px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+}
+
+.image-placeholder {
+  height: auto;
+  height: 150px;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-sidebar {
+  border-radius: 20px;
+  box-shadow: 0 0 10px #a0a0a0;
+  width: 400px;
+  height: 100vh;
+  max-height: 850px;
+  margin: 30px 0px;
+  background-color: aliceblue;
+
+  text-align: center;
+  padding: 40px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+#navbar {
+  background-color: rgb(33, 37, 41) !important;
+  height: 70px;
+  display: flex;
+  padding: 0px 40px;
+}
+
+#btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  opacity: 0.6;
+}
+
+#btn-container > .btn:hover {
+  box-shadow: 0px 3px rgb(163, 71, 248);
+  border-radius: 0%;
+}
+#btn-container > .btn{
+  background-color: inherit;
+  border-radius: 0%;
+}
+
+
+.card-container {
+  display: flex;
+  margin: 15px 0px;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  background-color: aliceblue;
+  padding:  20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #a0a0a0;
+}
+.description {
+  padding: 10px;
+}
+
+.img-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 300px;
+}
+
+.user-date-sect {
+  display: flex;
+}
+
+.card-btn-container {
+ display: flex;
+ justify-content: end;
+}
+
+
+.line-break {
+  height: 2px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+/* post options dynamic display */
+
+#post-control {
+  height: 40px;
+  width: 100px;
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2;
+}
+ #post-control:hover {
+  cursor: pointer;
+  opacity: 0.7;
+ }
+
+.options-bar {
+  z-index: 5;
+  position: absolute;
+  bottom: 70px;
+  right: 30px;
+  width: 0px;
+  height: 0px;
+  /* text-align: center; */
+  background-color: aliceblue;
+  border-radius: 3px;
+  transition: height 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.expand-options {
+  position: fixed;
+  height: 117px;
+  width: 100px;
+  transition: height 0.5s ease-in-out;
+}
+
+.dropdown-btn {
+  background-color: inherit;
+  border-radius: 0;
+  width: 110px;
+}
+
+.dropdown-btn:hover {
+  box-shadow: 0px 3px rgb(163, 71, 248);
+  border-radius: 0;
+}
+
+/* banner display */
+.container {
+  padding: 0px;
+  width: auto;
+}
+
+.banner-display {
+  display: flex;
+  width: 100%;
+  height: 350px;
+  background-color: rgb(43, 40, 40);
+  padding: 50px;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #a0a0a0;
+}
+
+.welcome-btn:hover {
+  background-color: aliceblue;
+  font-weight: 900;
+  color: black;
+  border: 2px solid black;
+}
+
+.banner-display > div > p {
+  width: 70%;
+}
+.banner-display >  div > .btn {
+  border: 2px solid white;
+}
+.banner-display >  div > h1 {
+  font-family: 'Handlee', cursive;
+}
+
+
+
+/* Form page */
+
+#signup-form {
+  /* width: 600px; */
+  /* max-width: 900px; */
+  margin: 15px;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #a0a0a0;
+}
+
+
+/* form validation UI for JS script */
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
