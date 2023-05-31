@@ -43,8 +43,8 @@
 
               
               <div class="mb-3">
-                <label for="imageUrl" class="form-label">Image upload</label>
-                <input type="image" class="form-control" name="imageUrl" placeholder="file..">
+                <label for="imageUrl" class="form-label">Select image to upload: </label>
+                <input type="file" class="form-control" name="imageUrl" placeholder="file..">
               </div>
 
               
