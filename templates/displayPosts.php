@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
     $userId = intval($userId);
     if (isset($_SESSION['userId']) && $_SESSION['userId'] == $userId) {
       echo '<div class="card-btn-container">';
-      echo '<button class="btn btn-primary m-1">EDIT</button>';
+      echo '<a href="editPost.php?id=' . $postId . '" class="btn btn-success m-1">EDIT</a>';
       echo '<a href="includes/deletePost.inc.php?id=' . $postId . '" class="btn btn-danger m-1">DELETE</a>';
       echo '</div>';
     }

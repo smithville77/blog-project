@@ -44,7 +44,7 @@
               </div>
 
               
-              <button type="submit" name="post-submit" class="btn btn-primary w-50">Post new review</button>
+              <button type="submit" name="post-submit" class="btn btn-primary w-50">Post review</button>
             </form>
           </main>
           </form>

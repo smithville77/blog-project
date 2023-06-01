@@ -37,6 +37,8 @@
         <?php if(isset($_SESSION['userId'])): ?> 
 
           <a href="./includes/logout.inc.php" class="btn btn-large text-light">LOGOUT</a>
+          <p>|</p>
+          <a href="./includes/editProfile.inc.php" class="btn btn-large text-light">PROFILE</a>
 
         <?php else: ?>
 

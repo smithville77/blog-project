@@ -7,3 +7,4 @@
 /includes/createPost.inc.php
 /includes/deletePost.inc.php
 /includes/editPost.inc.php
+/includes/editProfile.inc.php
