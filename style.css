@@ -121,8 +121,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  width: 300px;
+  
+}
+.img-placeholder > img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
 }
 
 .user-date-sect {
