@@ -51,7 +51,7 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
 
 
 
-    $maxSize = 1024 * 1024 * 2;     // 2MB
+    $maxSize = 1024 * 1024 * 2;    
     $imageFileSize = $_FILES['imageUrl']['size'];
     $imageFileMimeType = "";
 

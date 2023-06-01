@@ -3,6 +3,8 @@
 
 include './includes/connect.inc.php';
 
+
+
 $sql = "SELECT * from posts;";
 $result = $conn->query($sql);
 
@@ -11,13 +13,18 @@ if($result->num_rows > 0) {
 
   while ($row = $result->fetch_assoc()) {
 
+   
+
     $title = $row['title'];
     $review = $row['review'];
     $imageUrl = $row['imageUrl'];
-    $id = $row['idUsers'];
+    $id = $row['id'];
+    $postUserId = $row['idUsers'];
+
+    
 
 // prepared statement to get the username associated with the posted review
-    $userSql = "SELECT uidUsers FROM users WHERE idUsers = ?";
+    $userSql = "SELECT uidUsers, idUsers FROM users WHERE idUsers = ?";
 
     $userStmt = $conn->prepare($userSql);
     $userStmt->bind_param("i", $id);
@@ -27,11 +34,20 @@ if($result->num_rows > 0) {
     if($userResult->num_rows > 0) {
       $userRow = $userResult->fetch_assoc();
       $username = $userRow['uidUsers'];
+      $uid = $userRow['idUsers'];
     } else {
       $username = "Error, no username found";
     }
 
-   
+    if (isset($_SESSION['userId'])) {
+      $postUserId = $row['idUsers'];
+      $loggedInUserId = $_SESSION['userId'];
+    }
+    
+
+    // debug statements to check if the two values im trying to compare are correct
+  //  var_dump($postUserId);
+  //  var_dump($uid);
     //card structure to display information from database
     echo '<div class="col-12 col-sm-12 col-xl-6">';
         echo'<div class="card-container">';
@@ -46,10 +62,18 @@ if($result->num_rows > 0) {
                 
               echo '</div>';
               echo '<p class="user-review">' . $review . '</p>';
-              echo '<div class="card-btn-container">';
+              // if ($postUserId) {
+                if ($uid === intval($postUserId)) {
+                echo '<div class="card-btn-container">';
                 echo '<button class="btn btn-primary m-1">EDIT</button>';
-                echo '<button class="btn btn-danger m-1">DELETE</button>';
-              echo '</div>';
+                echo '<a href="includes/deletePost.inc.php?id=' . $id . '" class="btn btn-danger m-1">DELETE</a>';
+                echo '</div>';
+              // }
+
+              }
+              
+
+              
 
             echo '</div>';
           echo '</div>';
