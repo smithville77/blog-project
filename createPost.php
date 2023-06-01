@@ -1,12 +1,8 @@
-<!-- - Design a form where users can create new blog posts.
-   - Capture the necessary details, such as the post title, content, and associated user.
-   - Store the post information in the database, linking it to the corresponding user. -->
 
 
 
    <?php require './templates/header.php' ?> 
 <?php include './templates/optionsBar.php' ?>
-
 
 
 
