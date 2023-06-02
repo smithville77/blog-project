@@ -4,7 +4,7 @@
 
 
 
-<form action="./includes/editProfile.inc.php" method="POST">
+<form action="./includes/editProfile.inc.php" method="POST" enctype="multipart/form-data">
   <div class="content-structure">
   <?php include './templates/sidebar.php' ?>
     <div class="container-header-main">
@@ -24,11 +24,11 @@
 
               
               <div class="mb-3">
-                <label for="imageUrl" class="form-label">Select a profile picture: </label>
-                <input type="file" class="form-control" name="imageUrl" placeholder="file..">
+                <label for="profileUrl" class="form-label">Select a profile picture: </label>
+                <input type="file" class="form-control" name="profileUrl" placeholder="file..">
               </div>
 
-              <button type="submit" name="profile-submit" class="btn btn-primary w-100">Signup</button>
+              <button type="submit" name="profile-submit" class="btn btn-primary w-50">Submit profile</button>
 
           </div>
         </div>
