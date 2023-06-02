@@ -1,5 +1,48 @@
 
+
+// api results for news sidebar
+const api_key = '2a91e1a1c11ba19a2a8d7cc9dd3e60fb';
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+let currentDate = `${year}-${month}-${day}`;
+
+let url = `https://gnews.io/api/v4/search?q=food&lang=en&country=us&max=10&apikey=${api_key}`;
+
+fetch(url)
+  .then((res) => res.json()) 
+  .then((data) => {
+    articles = data.articles;
+    console.log(articles);
+
+    articles.forEach((article) => {
+      const title = article.title;
+      const image = article.image;
+
+      const titleElement = document.createElement('p');
+      titleElement.textContent = title;
+
+      const imageElement = document.createElement('img');
+      imageElement.src = image;
+
+      const container = document.getElementById('article-container');
+      container.appendChild(titleElement);
+      container.appendChild(imageElement);
+    });
+    
+
+
+  })
+  .catch(error => console.log(error));
+
+
+
+
 document.addEventListener("DOMContentLoaded" , () => {
+  
   const optionsBtn = document.getElementById("post-control");
   const optionsDiv = document.querySelector('.options-bar');
 
@@ -73,5 +116,7 @@ passwordInput.addEventListener("input", () => {
   }
 
 })
+
+
 
 
