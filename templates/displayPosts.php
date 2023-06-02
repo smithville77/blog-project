@@ -3,13 +3,10 @@
 
 
 <?php 
-if (isset($_SESSION['userId'])) {
+
 include './includes/connect.inc.php';
 
-$loggedInUserId = $_SESSION['userId'];
-
-
-$sql = "SELECT * FROM posts WHERE idUsers = $loggedInUserId";
+$sql = "SELECT * FROM posts";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -36,6 +33,14 @@ if ($result->num_rows > 0) {
       $username = "Error, no username found";
     }
 
+    
+    
+
+    
+    
+    
+    
+
     echo '<div class="col-12 col-sm-12 col-xl-6">';
     echo '<div class="card-container">';
     echo '<div class="img-placeholder">';
@@ -53,8 +58,8 @@ if ($result->num_rows > 0) {
     $userId = intval($userId);
     if (isset($_SESSION['userId']) && $_SESSION['userId'] == $userId) {
       echo '<div class="card-btn-container">';
-      echo '<a href="editPost.php?id=' . $postId . '" class="btn btn-success m-1">EDIT</a>';
-      echo '<a href="includes/deletePost.inc.php?id=' . $postId . '" class="btn btn-danger m-1">DELETE</a>';
+      echo '<a href="editPost.php?id=' . $postId . '" class="btn m-1"><i class="fa-solid fa-pen-to-square"></i></a>';
+      echo '<a href="includes/deletePost.inc.php?id=' . $postId . '" class="btn m-1"><i class="fa-solid fa-trash"></i></a>';
       echo '</div>';
     }
 
@@ -63,7 +68,9 @@ if ($result->num_rows > 0) {
     echo '</div>';
   }
 } 
+    // var_dump($userId);
+    // var_dump($postUserId);
+    // var_dump($userRow['idUsers']);
 
 $conn->close();
-}
 ?>
