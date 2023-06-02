@@ -1,15 +1,8 @@
-
-
-
-
 <?php 
-if (isset($_SESSION['userId'])) {
+
 include './includes/connect.inc.php';
 
-$loggedInUserId = $_SESSION['userId'];
-
-
-$sql = "SELECT * FROM posts WHERE idUsers = $loggedInUserId";
+$sql = "SELECT * FROM posts";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -35,6 +28,7 @@ if ($result->num_rows > 0) {
     } else {
       $username = "Error, no username found";
     }
+
 
     echo '<div class="col-12 col-sm-12 col-xl-6">';
     echo '<div class="card-container">';
@@ -64,6 +58,6 @@ if ($result->num_rows > 0) {
   }
 } 
 
+
 $conn->close();
-}
 ?>

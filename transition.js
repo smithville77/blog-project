@@ -10,7 +10,7 @@ let year = date.getFullYear();
 
 let currentDate = `${year}-${month}-${day}`;
 
-let url = `https://gnews.io/api/v4/search?q=food&lang=en&country=us&max=10&apikey=${api_key}`;
+let url = `https://gnews.io/api/v4/search?q=food&lang=en&country=us&max=5&apikey=${api_key}`;
 
 fetch(url)
   .then((res) => res.json()) 
@@ -20,20 +20,23 @@ fetch(url)
 
     articles.forEach((article) => {
       const title = article.title;
-      const image = article.image;
+      const url = article.url;
 
-      const titleElement = document.createElement('p');
+      
+      const titleElement = document.createElement('a');
       titleElement.textContent = title;
+      titleElement.href = url;
+      titleElement.classList.add('article-link');
+      titleElement.target = '_blank';
 
-      const imageElement = document.createElement('img');
-      imageElement.src = image;
+      const hr = document.createElement("hr");
+      hr.classList.add("line-break");
 
       const container = document.getElementById('article-container');
       container.appendChild(titleElement);
-      container.appendChild(imageElement);
+      container.appendChild(hr);
     });
-    
-
+ 
 
   })
   .catch(error => console.log(error));

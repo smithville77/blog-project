@@ -6,8 +6,7 @@
 </div>
 <div class="options-bar">
   <a href="./createPost.php" class="dropdown-btn btn">Create Post</a>
-  <a class="dropdown-btn btn">My Posts</a>
-  <a class="dropdown-btn btn">All Posts</a>
+  <a href="./templates/myPosts.php" class="dropdown-btn btn">My Posts</a>
 </div>
 <?php endif; ?>
 
