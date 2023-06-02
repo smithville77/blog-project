@@ -4,13 +4,21 @@
 <sidebar class="profile-sidebar d-none d-md-flex">
 <?php
 require './includes/connect.inc.php';
-// conditionally render the welcome with username if they are logged in
+
 if(isset($_SESSION['userId'])) {
   echo '<h4 class="welcome-header">Welcome, ' . $_SESSION['userUid'] . '</h4>';
 } else {
-  echo '<h4 class="welcome-header">Welcome </h4>';
+  echo '<h4 class="welcome-header">Welcome To Salt&Pepper</h4>';
+  echo '<a href="./signup.php" class="btn welcome-btn text-light">SIGN UP</a>';
+
+  // Rest of the code in the else statement to be shown only when no user is logged in
+  echo '<hr class="line-break">';
+  echo '<p>Made by Smithville77</p>';
+  echo '<p>Github</p>';
+  echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
 }
 
+if(isset($_SESSION['userId'])) {
   $userId = $_SESSION['userId'];
 
   $sql = 'SELECT * FROM profiles WHERE idUsers = ?';
@@ -23,9 +31,7 @@ if(isset($_SESSION['userId'])) {
 
   $stmt->close();
 
-
   $imagePath = './pfp/' . basename($profile['profileImageUrl']);
-// var_dump($profile); // seems like profile img path is incorrect
 
   if (!empty($profile['profileImageUrl'])) {
     echo '<img src="' . $imagePath . '" alt="Profile Image" class="image-placeholder"></img>';
@@ -33,13 +39,14 @@ if(isset($_SESSION['userId'])) {
     echo '<p>No profile image available</p>';
   }
 
-echo '<hr class="line-break">';
-echo '<p>Bio:</p>';
-echo '  <p class="bio">' . $profile['biography']   . '</p>';
-echo '<hr class="line-break">';
-echo '<p>Made by Smithville77</p>';
-echo '<p>Github</p>';
-echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
-echo '</sidebar>';
+  echo '<hr class="line-break">';
+  echo '<p>Bio:</p>';
+  echo '<p class="bio">' . $profile['biography'] . '</p>';
+  echo '<hr class="line-break">';
+  echo '<p>Made by Smithville77</p>';
+  echo '<p>Github</p>';
+  echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
+}
 
+echo '</sidebar>';
 ?>

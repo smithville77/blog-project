@@ -69,4 +69,5 @@
  
 </script>
 <script src="./transition.js" defer></script>
+<script src="https://kit.fontawesome.com/1b9b34e027.js" crossorigin="anonymous"></script>
 </body>

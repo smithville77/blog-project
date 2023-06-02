@@ -16,8 +16,8 @@
             <h3> Edit Profile </h3>
 
             <div class="mb-3">
-                <label for="biography" class="form-label">Bio - write something about yourself</label>
-                <textarea id="biography" type="textarea" class="form-control" name="biography" placeholder="Enter your review" value=""></textarea>
+                <label for="biography" class="form-label">Biography</label>
+                <textarea id="biography" type="textarea" class="form-control" name="biography" placeholder="Write something about yourself!" value=""></textarea>
               </div>
 
              
@@ -25,7 +25,7 @@
               
               <div class="mb-3">
                 <label for="profileUrl" class="form-label">Select a profile picture: </label>
-                <input type="file" class="form-control" name="profileUrl" placeholder="file..">
+                <input type="file" class="form-control" name="profileUrl">
               </div>
 
               <button type="submit" name="profile-submit" class="btn btn-primary w-50">Submit profile</button>

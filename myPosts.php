@@ -75,7 +75,7 @@ if (isset($_SESSION['userId'])) {
       echo '<div class="description">';
       echo '<h4>' . $title . '</h4>';
       echo '<div class="user-date-sect">';
-      echo '<p>posted by: ' . $username . '&nbsp; &nbsp; </p> || &nbsp; &nbsp; <p><em>posted on: ' . date('F j, Y', strtotime($postCreatedAt)) . '</em></p>';
+      echo '<p>posted by: ' . $username . '</p> <p><em>' . date('F j, Y', strtotime($postCreatedAt)) . '</em></p>';
       echo '</div>';
 
       echo '<p class="user-review">' . $review . '</p>';
