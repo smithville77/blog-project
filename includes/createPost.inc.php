@@ -102,26 +102,27 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
 
       if (move_uploaded_file($temp_name, $target_dir . $target_file)) {
         $the_message = "<p>File Uploaded Successfully. " . 'Preview it: <a href="' . $my_url . '" target="_blank">' . $my_url . '</a></p>';
-
-        $sql = "INSERT INTO posts (id, title, review, imageUrl, idUsers) VALUES (NULL, ?, ?, ?, ?);";
+      
+        $sql = "INSERT INTO posts (id, title, review, imageUrl, idUsers, created_at) VALUES (NULL, ?, ?, ?, ?, NOW());";
         $stmt = $conn->prepare($sql);
-
+      
         if (!$stmt) {
           header("Location: ../createPost.php?error=sqlerror");
           exit();
         }
-
+      
         $stmt->bind_param("sssi", $title, $review, $relativePath, $_SESSION['userId']);
         $stmt->execute();
         $stmt->close();
-
+      
         header("Location: ../home.php?post=success");
         exit();
-
+      
         echo "The file " . htmlspecialchars(basename($_FILES["imageUrl"]["name"])) . " has been uploaded.";
       } else {
         echo "Sorry, there was an error uploading your file.";
       }
+      
     }
   }
 
