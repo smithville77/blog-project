@@ -6,9 +6,9 @@
 require './includes/connect.inc.php';
 // conditionally render the welcome with username if they are logged in
 if(isset($_SESSION['userId'])) {
-  echo '<h4>Welcome, ' . $_SESSION['userUid'] . '</h4>';
+  echo '<h4 class="welcome-header">Welcome, ' . $_SESSION['userUid'] . '</h4>';
 } else {
-  echo '<h4>Welcome </h4>';
+  echo '<h4 class="welcome-header">Welcome </h4>';
 }
 
   $userId = $_SESSION['userId'];
@@ -37,6 +37,9 @@ echo '<hr class="line-break">';
 echo '<p>Bio:</p>';
 echo '  <p class="bio">' . $profile['biography']   . '</p>';
 echo '<hr class="line-break">';
+echo '<p>Made by Smithville77</p>';
+echo '<p>Github</p>';
+echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
 echo '</sidebar>';
 
 ?>
