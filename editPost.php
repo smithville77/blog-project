@@ -50,7 +50,7 @@ error_reporting(E_ALL);
       }
 
     } else {
-      header("Location: home.php");
+      header("Location: index.php");
       exit();
     }
    

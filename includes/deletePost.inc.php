@@ -31,11 +31,11 @@ if (isset($_GET['id']) && isset($_SESSION['userId'])) {
     $deleteStmt->close();
 
     // Redirect to the home page or any other desired location
-    header("Location: ../home.php?delete=success");
+    header("Location: ../index.php?delete=success");
     exit();
   } else {
     // The user is not authorized to delete the post
-    header("Location: ../home.php?error=unauthorized");
+    header("Location: ../index.php?error=unauthorized");
     exit();
   }
 } else {

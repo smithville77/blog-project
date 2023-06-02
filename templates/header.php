@@ -29,7 +29,7 @@
   <nav class="navbar sticky-top bg-dark text-light" id="navbar">
     <div class="container-fluid">
 
-      <a class="navbar-brand text-light" href="./home.php">Salt&Pepper</a>
+      <a class="navbar-brand text-light" href="./index.php">Salt&Pepper</a>
 
       <!-- <h1>Welcome to Review Blog!</h1> -->
 

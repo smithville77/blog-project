@@ -115,7 +115,7 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
         $stmt->execute();
         $stmt->close();
       
-        header("Location: ../home.php?post=success");
+        header("Location: ../index.php?post=success");
         exit();
       
         echo "The file " . htmlspecialchars(basename($_FILES["imageUrl"]["name"])) . " has been uploaded.";
