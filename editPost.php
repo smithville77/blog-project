@@ -121,8 +121,8 @@ error_reporting(E_ALL);
         </div>
       </div>
     
-   <?php include './templates/newsBar.php' ?>
+   
   
+    </div>
 
-
-
+<?php include './templates/newsBar.php' ?>
