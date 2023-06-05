@@ -18,6 +18,8 @@ if(isset($_SESSION['userId'])) {
   echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
 }
 
+
+
 if(isset($_SESSION['userId'])) {
   $userId = $_SESSION['userId'];
 
@@ -29,24 +31,41 @@ if(isset($_SESSION['userId'])) {
   $result = $stmt->get_result();
   $profile = $result->fetch_assoc();
 
+
+
   $stmt->close();
 
-  $imagePath = './pfp/' . basename($profile['profileImageUrl']);
+  
+
+  if(empty($profile['profileImageUrl']) && empty($profile['biography'])) {
+    echo '<p>Looks like you haven\'t created your profile yet, click <a href="./profile.php" class="btn btn-light">here</a> to create one.</p>';
+  } 
+
 
   if (!empty($profile['profileImageUrl'])) {
+    $imagePath = './pfp/' . basename($profile['profileImageUrl']);
     echo '<img src="' . $imagePath . '" alt="Profile Image" class="image-placeholder"></img>';
+
+    if(!empty($profile['biography'])) {
+      echo '<hr class="line-break">';
+      echo '<p>Bio:</p>';
+      echo '<p class="bio">' . $profile['biography'] . '</p>';
+      echo '<hr class="line-break">';
+      echo '<p>Made by Smithville77</p>';
+      echo '<p>Github</p>';
+      echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
+    } else {
+      echo '<hr class="line-break">';
+      echo '<p>Made by Smithville77</p>';
+      echo '<p>Github</p>';
+      echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
+    }
+
+
   } else {
-    echo '<p>No profile image available</p>';
-  }
 
-  echo '<hr class="line-break">';
-  echo '<p>Bio:</p>';
-  echo '<p class="bio">' . $profile['biography'] . '</p>';
-  echo '<hr class="line-break">';
-  echo '<p>Made by Smithville77</p>';
-  echo '<p>Github</p>';
-  echo '<a href="https://github.com/smithville77"><img src="./github-mark/github-mark-white.svg"></a>';
+  
 }
-
+}
 echo '</sidebar>';
 ?>
