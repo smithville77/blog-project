@@ -4,13 +4,17 @@
 error_reporting(E_ALL);
 
 session_start();
+// check $_POST $$ $_SESSION varaibles are set
 if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
 
   require 'connect.inc.php';
 
+  // not sure if real_escape_string is still needed here due to using prepared statements with these variables later.
   $title = $conn->real_escape_string($_POST['title']);
   $review = $conn->real_escape_string($_POST['review']);
 
+
+  // Chcek if the user submitted empty fields
   if (empty($title) || empty($review)) {
     header("Location: ../createPost.php?error=emptyfields");
     exit();
@@ -45,12 +49,13 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
 
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
+    //replace the path with the correct relative path (I had isses with creating and accessing the correct relative paths most times I tried it.)
     $my_url = $target_dir . $target_file;
     $relativePath = str_replace('../images/', './images/', $my_url);
 
 
 
-
+    //
     $maxSize = 1024 * 1024 * 2;    
     $imageFileSize = $_FILES['imageUrl']['size'];
     $imageFileMimeType = "";
@@ -79,12 +84,20 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
     }
 
 
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+    if ($imageFileType != "jpg"
+      && $imageFileType != "png"
+      && $imageFileType != "jpeg"
+      && $imageFileType != "gif") {
       echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
     }
 
-    if($the_message_ext == "" && $imageFileMimeType != "image/jpg" && $imageFileMimeType != "image/gif" && $imageFileMimeType != "image/jpeg" && $imageFileMimeType != "image/png") {
+    if($the_message_ext == "" &&
+     $imageFileMimeType != "image/jpg" &&
+     $imageFileMimeType != "image/gif" &&
+     $imageFileMimeType != "image/jpeg" &&
+     $imageFileMimeType != "image/png") {
+
       $the_message_ext = "File is not an accepted image type";
       $uploadOk = 0;
     }
@@ -94,12 +107,12 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
     } else {
 
 
-//debugging
+//debugging - 
       var_dump($target_dir);
       var_dump($target_file);
       var_dump(is_writable($target_dir));
 
-
+// move image to directory and enter into DB.
       if (move_uploaded_file($temp_name, $target_dir . $target_file)) {
         $the_message = "<p>File Uploaded Successfully. " . 'Preview it: <a href="' . $my_url . '" target="_blank">' . $my_url . '</a></p>';
       

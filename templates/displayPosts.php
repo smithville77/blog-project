@@ -11,6 +11,8 @@ include './includes/connect.inc.php';
 $sql = "SELECT * FROM posts";
 $result = $conn->query($sql);
 
+// loop and display all posts from db.
+
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     $title = $row['title'];

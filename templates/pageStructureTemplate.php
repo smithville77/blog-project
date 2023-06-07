@@ -3,7 +3,7 @@
 
 
 
-
+<!-- template that has the navbar, profile sidebar and news sidebar, with the createPost button -->
 <form action="" method="">
   <container class="content-structure">
   <?php include './templates/sidebar.php' ?>

@@ -36,7 +36,10 @@ if(isset($_SESSION['userId'])) {
   $stmt->close();
 
   
-
+// conditionally render the profile bar.
+// if there is no one signed in - render a signup button
+// if user is logged in but hasn't created a profile - render a button that leads to the create Profile page
+// if user is signed in and has created a profile - render the profile image and bio
   if(empty($profile['profileImageUrl']) && empty($profile['biography'])) {
     echo '<p>Looks like you haven\'t created your profile yet, click <a href="./profile.php" class="btn btn-light">here</a> to create one.</p>';
   } 

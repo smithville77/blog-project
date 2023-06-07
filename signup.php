@@ -6,7 +6,7 @@
 <?php
 if (isset($_GET['error'])) {
     $displayError = "";
-
+// display error message depending on which error was made - shows as a dismissable warning message so the user knows where the issue is.
     if ($_GET['error'] === "emptyfields") {
         $displayError = "Please make sure all fields have been filled out.";
     } elseif ($_GET['error'] === "invalidemail") {
@@ -66,7 +66,7 @@ if (isset($_GET['error'])) {
                 <label for="password" class="form-label">Password</label>
                 <input id="password-input" type="password" class="form-control" name="pwd" placeholder="Password">
               </div>
-
+            <!-- password fields that change color when conditions are met (i.e when the user enters an uppercase letter, a class is added to the div that changes the text color to green, or changes it to red if the condition has not been met - see the transition.js file) -->
               <div id="password-valid" class="d-none">
                 <div id="uppercase-label">Password must contain atleast 1 uppercase letter</div>
                 <div id="number-label">Password must contain atleast 1 number</div>
@@ -81,7 +81,7 @@ if (isset($_GET['error'])) {
                 <input type="password" class="form-control" name="pwd-repeat" placeholder="Confirm Password">
               </div>
 
-              
+              <!-- signup button is not useable until fields are filled out and the password conditions are met, then it becomes clickable (see transition.js) -->
               <button type="submit" id="signup-btn" name="signup-form-submit" class="btn btn-primary w-50">Signup</button>
             </form>
           </main>

@@ -27,18 +27,24 @@ if (isset($_GET['id']) && isset($_SESSION['userId'])) {
   $target_dir =  "../images/";
   $target_file = $target_dir . basename($imageToDelete);
 
-  unlink($target_file);
+
+  //check if $imageToDelete was set
+    if (!empty($imageToDelete)) {
+        // Check if the file exists
+        if (file_exists($target_file)) {
+          //delete file from server
+          unlink($target_file); 
+        }
+    }
 
 
 
-
-
-
-  echo "Post ID: $postId <br>";
-  echo "User ID: $userId <br>";
+//debugging
+  // echo "Post ID: $postId <br>";
+  // echo "User ID: $userId <br>";
 
   if ($result->num_rows > 0) {
-    // Delete the post
+    // Delete the post from DB.
     $deleteSql = "DELETE FROM posts WHERE id = ?";
     $deleteStmt = $conn->prepare($deleteSql);
     $deleteStmt->bind_param("i", $postId);
@@ -46,11 +52,11 @@ if (isset($_GET['id']) && isset($_SESSION['userId'])) {
 
     $deleteStmt->close();
     
-    // Redirect to the home page with success
+    // redirect to the home page with success
     header("Location: ../index.php?delete=success");
     exit();
   } else {
-    // The user is not authorized to delete the post
+    // the user is not authorized to delete the post
     header("Location: ../index.php?error=unauthorized");
     exit();
   }

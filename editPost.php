@@ -1,11 +1,11 @@
 
 <?php
 
-error_reporting(E_ALL);
+    error_reporting(E_ALL);
     ini_set('display_errors', 1);
      ?>
-<?php require './templates/header.php' ?> 
-<?php include './templates/optionsBar.php' ?>
+    <?php require './templates/header.php' ?> 
+    <?php include './templates/optionsBar.php' ?>
 
 
 
@@ -15,7 +15,6 @@ error_reporting(E_ALL);
   <?php include './templates/sidebar.php' ?>
     <div class="container-header-main">
       <?php include './templates/bannerDisplay.php' ?>
-
     <?php
     
     // var_dump($_SESSION['userId']);
@@ -59,34 +58,27 @@ error_reporting(E_ALL);
     <?php
     
     if(isset($_GET['error'])){
-     
       
       if($_GET['error'] == "emptyfields"){
         $errorMsg = "Please fill in all fields";
-
-      
+ 
       } else if ($_GET['error'] == "sqlerror") {
         $errorMsg = "An internal server error has occurred - please try again later";
       }
 
-    
       echo '<div class="alert alert-danger" role="alert">' . $errorMsg . '</div>';
-
-      // (iv). SUCCESS MESSAGE: Post updated successfully to DB -> NOT on this page.  We redirect them to posts.php, so we will need to add it there LATER!
+  
     }
     
   ?>
     
-   
 
-    
 
       <div class="row">
             <div class="form">
               
             <form action="includes/editPost.inc.php?id=<?php echo $_GET['id']; ?>" method="POST">
 
-              
                 
               <main class="container p-4 bg-dark text-light mt-3 >" id="edit-form">
         

@@ -31,11 +31,12 @@
 
       <a class="navbar-brand text-light" href="./index.php">Salt&Pepper</a>
 
-      <!-- <h1>Welcome to Review Blog!</h1> -->
+     
 
       <container id="btn-container">
         <?php if(isset($_SESSION['userId'])): ?> 
 
+           <!-- conditionally render navbar buttons depending on if $_SESSION superglobal is set. () -->
           <a href="./includes/logout.inc.php" class="btn btn-large text-light">LOGOUT</a>
           <p>|</p>
           <a href="./profile.php" class="btn btn-large text-light">PROFILE</a>
@@ -49,6 +50,8 @@
         
         <!-- <p>⟡</p> -->
         <p>|</p>
+
+         <!-- conditionally render navbar buttons depending on if $_SESSION superglobal is set. () -->
         <?php if(isset($_SESSION['userId'])): ?> 
 
         <a href="./signup.php" class="btn btn-large text-light d-none">SIGN UP</a>
