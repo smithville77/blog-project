@@ -1,6 +1,6 @@
 <?php
 
-echo " debug statement";
+echo "debug statement";
 session_start();
 if (isset($_GET['id']) && isset($_SESSION['userId'])) {
   require 'connect.inc.php';
@@ -18,9 +18,24 @@ if (isset($_GET['id']) && isset($_SESSION['userId'])) {
   $stmt->execute();
   $result = $stmt->get_result();
 
+ 
+  
+    // in both editProfile and deletePost, I had issues with pathing to delete the image from the server when it's also been removed from the database. Breaking down the file path ($target_dir) and concatenating it with the basename from the database gave me a bit more control to make sure it would be removed correctly.
+  $row = $result->fetch_assoc();
+  $imageToDelete = $row['imageUrl'];
 
-  echo "Post ID: $postId<br>";
-  echo "User ID: $userId<br>";
+  $target_dir =  "../images/";
+  $target_file = $target_dir . basename($imageToDelete);
+
+  unlink($target_file);
+
+
+
+
+
+
+  echo "Post ID: $postId <br>";
+  echo "User ID: $userId <br>";
 
   if ($result->num_rows > 0) {
     // Delete the post
@@ -28,9 +43,10 @@ if (isset($_GET['id']) && isset($_SESSION['userId'])) {
     $deleteStmt = $conn->prepare($deleteSql);
     $deleteStmt->bind_param("i", $postId);
     $deleteStmt->execute();
-    $deleteStmt->close();
 
-    // Redirect to the home page or any other desired location
+    $deleteStmt->close();
+    
+    // Redirect to the home page with success
     header("Location: ../index.php?delete=success");
     exit();
   } else {
@@ -43,4 +59,6 @@ if (isset($_GET['id']) && isset($_SESSION['userId'])) {
   header("Location: ../signup.php");
   exit();
 }
+$stmt->close();
+$result->close();
 ?>

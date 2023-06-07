@@ -2,7 +2,14 @@
 <?php include './templates/optionsBar.php' ?>
 
 
+<?php
+  if(isset($_GET['success']) && $_GET['success'] === "true") {
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 250px; position: absolute; top: 100px; right: 20px;"> Success! You have signed up. Please log in to continue.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+  }
 
+?>
 
 
   <container class="content-structure">

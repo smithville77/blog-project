@@ -3,6 +3,25 @@
 
 
 
+<?php
+if (isset($_GET['error'])) {
+    $displayError = "";
+
+    if ($_GET['error'] === "emptyfields") {
+        $displayError = "Please make sure all fields have been filled out.";
+    } elseif ($_GET['error'] === "invalidemail") {
+        $displayError = "Sorry, you have entered an incorrect email format.";
+    } elseif ($_GET['error'] === "invalidusername") {
+        $displayError = "Sorry, that username contains illegal characters.";
+    } elseif ($_GET['error'] === "passwordmismatch") {
+        $displayError = "Sorry, you have entered passwords that do not match.";
+    }
+
+    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 250px; position: absolute; top: 100px; right: 20px;">' . $displayError . '
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
+?>
 
 
     <container class="content-structure">
@@ -15,6 +34,7 @@
             <div class="form">
               
               <form action="includes/signup.inc.php" method="POST">
+
                 
               <main class="container p-4 bg-dark text-light mt-3 >" id="signup-form">
               <h3> Sign Up </h3>

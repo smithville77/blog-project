@@ -13,8 +13,9 @@ $result = $stmt->get_result();
 $profile = $result->fetch_assoc();
 $stmt->close();
 
-$biography = $profile['biography'];
-$previousImageUrl = $profile['profileImageUrl'];
+
+
+
 
 ?>
 
@@ -29,7 +30,12 @@ $previousImageUrl = $profile['profileImageUrl'];
           <div class="form">
             <h3> Edit Profile </h3>
 
-            <?php if ($profile) { ?>
+            <!-- // note: opening brace for the if statement STARTS here -->
+            <?php if ($profile) {
+              
+                $biography = $profile['biography'];
+                $previousImageUrl = $profile['profileImageUrl'];
+               ?>
               <div class="mb-3">
                 <label for="biography" class="form-label">Biography</label>
                 <textarea id="biography" type="textarea" class="form-control" name="biography" placeholder="Write something about yourself!"><?php echo $biography; ?></textarea>
