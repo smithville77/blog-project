@@ -1,6 +1,8 @@
 
 
 // api results for news sidebar
+// I know it's bad practice to leave api key in codebase but this is a free api with a limit
+// uncomment the fetch request below to populate the news sidebar with food related news.
 const api_key = '2a91e1a1c11ba19a2a8d7cc9dd3e60fb';
 const date = new Date();
 

@@ -19,6 +19,25 @@
 
       <div>
       <form action="includes/login.inc.php" method="POST">
+      <?php
+      if (isset($_GET['loginerror'])) {
+          $displayError = "";
+      // display error message depending on which error was made - shows as a dismissable warning message so the user knows where the issue is.
+          if ($_GET['loginerror'] === "emptyfields") {
+              $displayError = "Please make sure all fields have been filled out.";
+          
+        
+          } elseif ($_GET['loginerror'] === "incorrectpwd") {
+              $displayError = "Sorry, that password is incorrect";
+          }
+
+    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 250px; position: absolute; top: 100px; right: 20px;">' . $displayError . '
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
+?>
+
+
                 
         <main class="container p-4 bg-dark text-light mt-3 >" id="login-form">
         <h3>Login</h3>

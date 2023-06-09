@@ -33,7 +33,8 @@
 
      
 
-      <container id="btn-container">
+
+      <div id="btn-container">
         <?php if(isset($_SESSION['userId'])): ?> 
 
            <!-- conditionally render navbar buttons depending on if $_SESSION superglobal is set. () -->
@@ -63,7 +64,7 @@
         <?php endif; ?>
 
         <a class="btn btn-large text-light">ABOUT</a>
-      </container>
+      </div>
       
 
     </div>

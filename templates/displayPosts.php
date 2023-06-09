@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
     echo '<div class="description">';
     //section with title and review, this should sit left inside the "description" container
     echo '<div class="title-review-sect">';
-    echo '<h4>' . $title . '</h4>';
+    echo '<h4><strong>' . $title . '</strong></h4>';
     echo '<p class="user-review">' . $review . '</p>';
     echo '</div>';
     // section container with username and posted-date, on right side of "description" container

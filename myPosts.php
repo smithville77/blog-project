@@ -73,7 +73,7 @@ if (isset($_SESSION['userId'])) {
       echo '<img src="' . $imageUrl . '" alt="Image">';
       echo '</div>';
       echo '<div class="description">';
-      echo '<h4>' . $title . '</h4>';
+      echo '<h4><strong>' . $title . '</strong></h4>';
       echo '<div class="user-date-sect">';
       echo '<p>posted by: ' . $username . '</p> <p><em>' . date('F j, Y', strtotime($postCreatedAt)) . '</em></p>';
       echo '</div>';

@@ -101,9 +101,9 @@ if (isset($_POST['post-submit']) && isset($_SESSION['userId'])) {
       $the_message_ext = "File is not an accepted image type";
       $uploadOk = 0;
     }
-
+// route back to the page with the error message in the header - in createPost.php, the error will be displayed in the UI to the user.,
     if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded." . $the_message_ext;
+      header("Location: ../createPost.php?error=" . urlencode($the_message_ext));
     } else {
 
 

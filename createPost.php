@@ -1,14 +1,22 @@
 
 
 
-   <?php require './templates/header.php' ?> 
+  <?php require './templates/header.php' ?> 
 <?php include './templates/optionsBar.php' ?>
 
 
 
 
-    <container class="content-structure">
-    <?php include './templates/sidebar.php' ?>
+<container class="content-structure">
+
+      <?php include './templates/sidebar.php' ?>
+      <?php if (isset($_GET['error'])) {
+      $errorMessage = $_GET['error'];
+      echo '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 250px; position: absolute; top: 100px; right: 20px;">' . $errorMessage . '
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+     } ?>
+
 
       <div class="container-header-main">
       <?php include './templates/bannerDisplay.php' ?>
@@ -40,16 +48,16 @@
               
               <div class="mb-3">
                 <label for="imageUrl" class="form-label">Select image to upload: </label>
-                <input type="file" class="form-control" name="imageUrl" placeholder="file..">
+                <input type="file" class="form-control" name="imageUrl">
               </div>
 
               
               <button type="submit" name="post-submit" class="btn btn-primary w-50">Post review</button>
+              </main>
             </form>
-          </main>
-          </form>
         </div>
       </div>
     </div>
   </div>
-  <?php include './templates/newsBar.php' ?></container>
+  <?php include './templates/newsBar.php' ?>
+</container>
